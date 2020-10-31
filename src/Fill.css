@@ -1,0 +1,77 @@
+.visitedpath {
+	background: radial-gradient(ellipse at center, #15a0f0 45%, transparent 40%);
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 200px;
+	width: 200px;
+	animation: Flow1 5s ease;
+	animation-fill-mode: forwards;
+}
+
+.shortestpath {
+	background: radial-gradient(ellipse at center, #292929 45%, transparent 40%);
+	background-repeat: no-repeat;
+	background-position: center;
+	border-color: #292929;
+	height: 200px;
+	width: 200px;
+	animation: Flow2 3s ease;
+	animation-fill-mode: forwards;
+}
+
+.wallsanimation {
+
+	background: radial-gradient(ellipse at center, #fffb00 45%, transparent 40%);
+	background-repeat: no-repeat;
+	background-position: center;
+	border-color: #fffb00;
+	height: 200px;
+	width: 200px;
+	animation: Flow3 1s ease;
+	animation-fill-mode: forwards;
+
+}
+
+@keyframes Flow1 {
+	0% {
+		background-size: 0% 0%;
+		
+	}
+	40%{
+		background-size: 1000% 1000%;
+		
+	}
+	60%{
+		background-size: 0% 0%;
+	}
+	70% {
+		background-color: rgb(194, 255, 255);
+	}
+	100%{
+		background-color: #00ffff;
+		background-size: 0% 0%;
+	}
+	
+}
+
+@keyframes Flow2 {
+	0% {
+		background-size: 0% 0%;
+	}
+
+	100% {
+		
+		background-size: 1000% 1000%;
+	}
+}
+
+@keyframes Flow3 {
+	0% {
+		background-size: 0% 0%;
+	}
+
+	100% {
+		
+		background-size: 1000% 1000%;
+	}
+}
