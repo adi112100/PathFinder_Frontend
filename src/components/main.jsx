@@ -34,7 +34,7 @@ function Main() {
     useEffect(
         () => {
 
-            
+            console.log(paths)
             traverse_path()
 
 
@@ -43,6 +43,7 @@ function Main() {
 
     useEffect(
         () => {
+            console.log(startNode)
             document.getElementById(startNode).style.backgroundColor = 'black'
             document.getElementById(1590).style.backgroundColor = 'black'
             document.getElementById(1590).innerHTML = '<i class="fas fa-genderless end"></i>'
@@ -137,12 +138,12 @@ function Main() {
 
 
 
-    function clicked() {
+    function clicked(algorithm) {
 
         if (status.isrunning === 0 && status.iscleared === 1 && status.isdone === 0) {
 
             setStatus({ isrunning: 1, iscleared: 0 })
-            Axios.post(`https://adityamorankar-pathfinder.herokuapp.com/djsktras/40/90/${startNode}/1590/`,
+            Axios.post(`http://localhost:8000/${algorithm}/40/90/${startNode}/1590/`,
             {
                 'walls' : JSON.stringify(walls)
             })
