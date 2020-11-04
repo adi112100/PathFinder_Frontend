@@ -51,3 +51,8 @@
   transform: translate(16%, -16%);
 }
 
+.hide
+{
+  display: none;
+}
+
