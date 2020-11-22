@@ -1,7 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 function Nav(props) {
     const [algorithms, setAlgorithms] = useState('djsktras')
+    const [speed, setSpeed] = useState(35)
+
+    useEffect(
+        ()=>{
+            console.log(speed)
+        },[speed]
+    )
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed">
@@ -86,6 +94,25 @@ function Nav(props) {
                                     <div />
                             }
                         </li>
+                        <li><h5 className="navbar-brand" style={{ marginLeft: '20px' }}>Visualization Speed</h5></li>
+                        <li>
+                            {
+                                props.status.isrunning === 0 && props.status.iscleared === 1 && props.status.isdone === 0 ?
+                                <div className="slidecontainer"  style={{marginLeft: "10px", marginTop: "10px"}}>
+                                    <input type="range" min="10" max="200" 
+                                    onChange = {()=> {
+                                        setSpeed(document.getElementById('speedslider').value)
+                                        props.change_speed(document.getElementById('speedslider').value)
+                                }}
+                                    value = {speed}
+                                    className="slider" id="speedslider"/>
+                                </div>
+                                :
+                                <div></div>
+                            
+                            }
+                        </li>
+                        <li><h5 className="navbar-brand" style={{ marginLeft: '10px' }}>{speed}ms</h5></li>
 
                     </ul>
                 </div>

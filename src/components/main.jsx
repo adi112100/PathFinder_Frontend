@@ -21,7 +21,7 @@ function Main() {
 
     const [mousepressed, presStatus] = useState(false)
     const [walls, addWalls] = useState([])
-
+    const [speed, setSpeed] = useState(35)
     // useEffect(
     //     ()=>{
     //         console.log(can_create_walls)
@@ -42,11 +42,8 @@ function Main() {
 
     useEffect(
         () => {
-            
             // console.log(paths.shortest_path)
             traverse_path()
-
-
         }, [paths]
     )
 
@@ -204,7 +201,7 @@ function Main() {
 
                     }
                 },
-                35 * i
+                speed * i
             )
         }
 
@@ -228,7 +225,7 @@ function Main() {
                         setStatus({ isrunning: 0, iscleared: 0, isdone: 1 })
                     }
                 },
-                25 * i
+                (speed-10) * i
             )
         }
 
@@ -246,11 +243,13 @@ function Main() {
         for (let i = 0; i < paths.shortest_path.length; ++i) {
             document.getElementById(paths.shortest_path[i]).classList.remove("shortestpath");
         }
-
-
-
-
     }
+
+    function change_speed(newSpeed) {
+        setSpeed(newSpeed);
+    }
+
+
 
 
 
@@ -261,7 +260,10 @@ function Main() {
     return (
 
         <div>
-            <Nav click={clicked} clear={clear_path} status={status} canCreateWalls={canCreateWalls} can_create_walls={can_create_walls} clear_allwalls={clear_allwalls} create_predefine_path={create_predefine_path} />
+            <Nav click={clicked} clear={clear_path} status={status} 
+                canCreateWalls={canCreateWalls} can_create_walls={can_create_walls} 
+                clear_allwalls={clear_allwalls} create_predefine_path={create_predefine_path}
+                change_speed={change_speed} />
             <div className="matrix shadow">
                 {
                     row_lst.map(x =>
